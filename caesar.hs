@@ -17,8 +17,8 @@ decode :: [Char] -> [Char]
 decode s = decode' s 1 0
 decode' s n h
  | n > 26 = caesar s h
- | score s n > score s h = decode' s (n+1) n 
- | otherwise = decode' s (n+1) h
+ | score s n > score s h = decode' s (n + 1) n 
+ | otherwise = decode' s (n + 1) h
 
 score s n = sum $ map (\x -> scoreGrid!!(toOrd x)) $ caesar s n
 scoreGrid = [0,3,-1,1,1,4,0,0,2,2,-5,-2,1,0,2,3,0,-6,2,2,3,1,-1,0,-5,0,-7]
